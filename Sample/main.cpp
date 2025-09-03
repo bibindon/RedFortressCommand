@@ -7,7 +7,7 @@
 
 #pragma comment (lib, "winmm.lib")
 
-#pragma comment( lib, "command.lib")
+#pragma comment( lib, "CommandItem.lib")
 
 #ifdef _DEBUG
     #define D3D_DEBUG_INFO 
@@ -23,7 +23,7 @@ struct LeakChecker
 
 #endif
 
-#include "..\command\command.h"
+#include "..\CommandItem\CommandItem.h"
 
 #include <d3d9.h>
 #include <d3dx9.h>
@@ -204,7 +204,7 @@ D3DXMATERIAL* d3dxMaterials;
 float f = 0.0f;
 bool bShowMenu = true;
 
-std::unique_ptr<CommandLib> g_command;
+std::unique_ptr<Command> g_command;
 
 static void TextDraw(LPD3DXFONT pFont, wchar_t* text, int X, int Y)
 {
@@ -319,7 +319,7 @@ static HRESULT InitD3D(HWND hWnd)
 
     bool bEnglish = false;
 
-    g_command.reset(new CommandLib());
+    g_command.reset(new Command());
     g_command->Init(pFont, pSE, sprCursor, bEnglish, L"commandName.csv");
     
     g_command->UpsertCommand(L"cutTree", true);

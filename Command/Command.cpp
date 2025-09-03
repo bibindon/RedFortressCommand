@@ -1,4 +1,4 @@
-﻿#include "command.h"
+﻿#include "Command.h"
 
 #include <sstream>
 #include <algorithm>
@@ -21,7 +21,7 @@ static std::vector<std::wstring> split(const std::wstring& s, wchar_t delim)
     return result;
 }
 
-void CommandLib::Init(IFont* font, ISoundEffect* pSE, ISprite* sprCursor, const bool bEnglish,
+void Command::Init(IFont* font, ISoundEffect* pSE, ISprite* sprCursor, const bool bEnglish,
                       const std::wstring csvfile)
 {
     m_font = font;
@@ -40,18 +40,18 @@ void CommandLib::Init(IFont* font, ISoundEffect* pSE, ISprite* sprCursor, const 
     }
 }
 
-void NSCommand::CommandLib::Finalize()
+void NSCommand::Command::Finalize()
 {
     delete m_font;
     delete m_SE;
     delete m_sprCursor;
 }
 
-void NSCommand::CommandLib::UpsertCommand(const std::wstring& id,
+void NSCommand::Command::UpsertCommand(const std::wstring& id,
                                           const bool enable)
 {
     auto result = std::find_if(m_commandList.begin(), m_commandList.end(),
-                               [&](const Command& x)
+                               [&](const CommandItem& x)
                                {
                                    return x.GetId() == id;
                                });
@@ -62,21 +62,21 @@ void NSCommand::CommandLib::UpsertCommand(const std::wstring& id,
     }
     else
     {
-        Command command;
-        command.SetId(id);
-        command.SetName(m_nameMap.at(id));
-        command.SetEnable(enable);
+        CommandItem CommandItem;
+        CommandItem.SetId(id);
+        CommandItem.SetName(m_nameMap.at(id));
+        CommandItem.SetEnable(enable);
 
-        m_commandList.push_back(command);
+        m_commandList.push_back(CommandItem);
     }
 
     ResetRect();
 }
 
-void NSCommand::CommandLib::RemoveCommand(const std::wstring& id)
+void NSCommand::Command::RemoveCommand(const std::wstring& id)
 {
     auto result = std::remove_if(m_commandList.begin(), m_commandList.end(),
-                                 [&](const Command& x)
+                                 [&](const CommandItem& x)
                                  {
                                      return x.GetId() == id;
                                  });
@@ -86,12 +86,12 @@ void NSCommand::CommandLib::RemoveCommand(const std::wstring& id)
     ResetRect();
 }
 
-void NSCommand::CommandLib::RemoveAll()
+void NSCommand::Command::RemoveAll()
 {
     m_commandList.clear();
 }
 
-void CommandLib::Draw()
+void Command::Draw()
 {
     // もし、選択不可能なコマンド上にカーソルがあったら、
     // 選択可能なコマンド上にカーソルを移動させる。
@@ -165,10 +165,10 @@ void CommandLib::Draw()
     }
 }
 
-void NSCommand::CommandLib::Previous()
+void NSCommand::Command::Previous()
 {
     auto it = std::find_if(m_commandList.begin(), m_commandList.end(),
-                           [](const Command& x)
+                           [](const CommandItem& x)
                            {
                                return x.GetEnable();
                            });
@@ -197,10 +197,10 @@ void NSCommand::CommandLib::Previous()
     m_SE->PlayMove();
 }
 
-void NSCommand::CommandLib::Next()
+void NSCommand::Command::Next()
 {
     auto it = std::find_if(m_commandList.begin(), m_commandList.end(),
-                           [](const Command& x)
+                           [](const CommandItem& x)
                            {
                                return x.GetEnable();
                            });
@@ -229,13 +229,13 @@ void NSCommand::CommandLib::Next()
     m_SE->PlayMove();
 }
 
-std::wstring NSCommand::CommandLib::Into()
+std::wstring NSCommand::Command::Into()
 {
     m_SE->PlayClick();
     return m_commandList.at(m_cursorIndex).GetId();
 }
 
-void NSCommand::CommandLib::MouseMove(const int x, const int y)
+void NSCommand::Command::MouseMove(const int x, const int y)
 {
     int index = -1;
     for (int i = 0; i < (int)m_commandList.size(); ++i)
@@ -265,7 +265,7 @@ void NSCommand::CommandLib::MouseMove(const int x, const int y)
     }
 }
 
-std::wstring NSCommand::CommandLib::Click(const int x, const int y)
+std::wstring NSCommand::Command::Click(const int x, const int y)
 {
     int index = -1;
     for (int i = 0; i < (int)m_commandList.size(); ++i)
@@ -305,7 +305,7 @@ std::wstring NSCommand::CommandLib::Click(const int x, const int y)
     }
 }
 
-void NSCommand::CommandLib::ResetRect()
+void NSCommand::Command::ResetRect()
 {
     // 奇数の場合
     if (m_commandList.size() % 2 == 1)
@@ -350,27 +350,27 @@ void NSCommand::CommandLib::ResetRect()
     }
 }
 
-void NSCommand::Command::SetName(const std::wstring& arg)
+void NSCommand::CommandItem::SetName(const std::wstring& arg)
 {
     m_name = arg;
 }
 
-std::wstring NSCommand::Command::GetName() const
+std::wstring NSCommand::CommandItem::GetName() const
 {
     return m_name;
 }
 
-void NSCommand::Command::SetEnable(const bool arg)
+void NSCommand::CommandItem::SetEnable(const bool arg)
 {
     m_bEnable = arg;
 }
 
-bool NSCommand::Command::GetEnable() const
+bool NSCommand::CommandItem::GetEnable() const
 {
     return m_bEnable;
 }
 
-void NSCommand::Command::SetRect(const int top, const int left, const int bottom, const int right)
+void NSCommand::CommandItem::SetRect(const int top, const int left, const int bottom, const int right)
 {
     m_top = top;
     m_left = left;
@@ -378,7 +378,7 @@ void NSCommand::Command::SetRect(const int top, const int left, const int bottom
     m_right = right;
 }
 
-void NSCommand::Command::GetRect(int* top, int* left, int* bottom, int* right)
+void NSCommand::CommandItem::GetRect(int* top, int* left, int* bottom, int* right)
 {
     *top = m_top;
     *left = m_left;
@@ -386,7 +386,7 @@ void NSCommand::Command::GetRect(int* top, int* left, int* bottom, int* right)
     *right = m_right;
 }
 
-int NSCommand::Command::GetLeftPos()
+int NSCommand::CommandItem::GetLeftPos()
 {
     return m_left;
 }

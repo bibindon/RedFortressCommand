@@ -46,7 +46,7 @@ public:
 };
 
 
-class Command
+class CommandItem
 {
 public:
     void SetId(const std::wstring& arg) { m_id = arg; }
@@ -73,7 +73,7 @@ private:
     int m_right = 0;
 };
 
-class CommandLib
+class Command
 {
 public:
 
@@ -105,7 +105,7 @@ private:
     IFont* m_font = NULL;
     ISoundEffect* m_SE = NULL;
 
-    std::vector<Command> m_commandList;
+    std::vector<CommandItem> m_commandList;
 
     std::unordered_map<std::wstring, std::wstring> m_nameMap;
 
