@@ -1,0 +1,16 @@
+ID,Name
+cutTree,伐採
+pickPlant,採取
+rest3Hours,３時間休憩する
+lieDown,横になる
+sit,座る
+escape,脱出
+craft,クラフトする
+patchTest,パッチテスト
+rideRaft,イカダに乗る
+checkRaftStorage,イカダの倉庫を見る
+oar3Hours,３時間漕ぐ
+lit,松明に火をつける
+extinguish,松明の火を消す
+createTorch,松明を作る
+stand,立つ
