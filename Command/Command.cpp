@@ -305,6 +305,18 @@ std::wstring NSCommand::Command::Click(const int x, const int y)
     }
 }
 
+void NSCommand::Command::OnDeviceLost()
+{
+    m_font->OnDeviceLost();
+    m_sprCursor->OnDeviceLost();
+}
+
+void NSCommand::Command::OnDeviceReset()
+{
+    m_font->OnDeviceReset();
+    m_sprCursor->OnDeviceReset();
+}
+
 void NSCommand::Command::ResetRect()
 {
     // 奇数の場合

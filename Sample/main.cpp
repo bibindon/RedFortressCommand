@@ -7,7 +7,7 @@
 
 #pragma comment (lib, "winmm.lib")
 
-#pragma comment( lib, "CommandItem.lib")
+#pragma comment( lib, "Command.lib")
 
 #ifdef _DEBUG
     #define D3D_DEBUG_INFO 
@@ -23,7 +23,7 @@ struct LeakChecker
 
 #endif
 
-#include "..\CommandItem\CommandItem.h"
+#include "..\Command\Command.h"
 
 #include <d3d9.h>
 #include <d3dx9.h>
@@ -91,6 +91,16 @@ public:
 
     ~Sprite()
     {
+    }
+
+    void OnDeviceLost()
+    {
+        m_D3DSprite->OnLostDevice();
+    }
+
+    void OnDeviceReset()
+    {
+        m_D3DSprite->OnResetDevice();
     }
 
 private:
@@ -162,6 +172,16 @@ public:
 
     ~Font()
     {
+    }
+
+    void OnDeviceLost()
+    {
+        m_pFont->OnLostDevice();
+    }
+
+    void OnDeviceReset()
+    {
+        m_pFont->OnResetDevice();
     }
 
 private:
