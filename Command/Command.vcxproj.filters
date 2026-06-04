@@ -9,16 +9,12 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="CommandItem.cpp">
-      <Filter>ソース ファイル</Filter>
-    </ClCompile>
+    <ClCompile Include="Command.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="CommandItem.h">
-      <Filter>ヘッダー ファイル</Filter>
-    </ClInclude>
     <ClInclude Include="HeaderOnlyCsv.hpp">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
+    <ClInclude Include="Command.h" />
   </ItemGroup>
 </Project>
