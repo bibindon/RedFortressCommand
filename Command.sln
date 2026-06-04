@@ -5,7 +5,7 @@ VisualStudioVersion = 16.0.34601.136
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Sample", "Sample\Sample.vcxproj", "{612AB2DB-B7C4-4E63-AA2D-A02C76A2EEB2}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "command", "command\command.vcxproj", "{D8A93A58-4392-4FC4-A4F7-634D4DAC81B4}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "command", "command\command.vcxproj", "{ADAA0E96-6763-43A7-9756-94C8B96FECD0}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -29,18 +29,18 @@ Global
 		{612AB2DB-B7C4-4E63-AA2D-A02C76A2EEB2}.Release|x64.Build.0 = Release|x64
 		{612AB2DB-B7C4-4E63-AA2D-A02C76A2EEB2}.Release|x86.ActiveCfg = Release|Win32
 		{612AB2DB-B7C4-4E63-AA2D-A02C76A2EEB2}.Release|x86.Build.0 = Release|Win32
-		{D8A93A58-4392-4FC4-A4F7-634D4DAC81B4}.Debug_VisualStudio2019|x64.ActiveCfg = Debug_VisualStudio2019|x64
-		{D8A93A58-4392-4FC4-A4F7-634D4DAC81B4}.Debug_VisualStudio2019|x64.Build.0 = Debug_VisualStudio2019|x64
-		{D8A93A58-4392-4FC4-A4F7-634D4DAC81B4}.Debug_VisualStudio2019|x86.ActiveCfg = Debug_VisualStudio2019|Win32
-		{D8A93A58-4392-4FC4-A4F7-634D4DAC81B4}.Debug_VisualStudio2019|x86.Build.0 = Debug_VisualStudio2019|Win32
-		{D8A93A58-4392-4FC4-A4F7-634D4DAC81B4}.Debug|x64.ActiveCfg = Debug|x64
-		{D8A93A58-4392-4FC4-A4F7-634D4DAC81B4}.Debug|x64.Build.0 = Debug|x64
-		{D8A93A58-4392-4FC4-A4F7-634D4DAC81B4}.Debug|x86.ActiveCfg = Debug|Win32
-		{D8A93A58-4392-4FC4-A4F7-634D4DAC81B4}.Debug|x86.Build.0 = Debug|Win32
-		{D8A93A58-4392-4FC4-A4F7-634D4DAC81B4}.Release|x64.ActiveCfg = Release|x64
-		{D8A93A58-4392-4FC4-A4F7-634D4DAC81B4}.Release|x64.Build.0 = Release|x64
-		{D8A93A58-4392-4FC4-A4F7-634D4DAC81B4}.Release|x86.ActiveCfg = Release|Win32
-		{D8A93A58-4392-4FC4-A4F7-634D4DAC81B4}.Release|x86.Build.0 = Release|Win32
+		{ADAA0E96-6763-43A7-9756-94C8B96FECD0}.Debug_VisualStudio2019|x64.ActiveCfg = Debug_VisualStudio2019|x64
+		{ADAA0E96-6763-43A7-9756-94C8B96FECD0}.Debug_VisualStudio2019|x64.Build.0 = Debug_VisualStudio2019|x64
+		{ADAA0E96-6763-43A7-9756-94C8B96FECD0}.Debug_VisualStudio2019|x86.ActiveCfg = Debug_VisualStudio2019|Win32
+		{ADAA0E96-6763-43A7-9756-94C8B96FECD0}.Debug_VisualStudio2019|x86.Build.0 = Debug_VisualStudio2019|Win32
+		{ADAA0E96-6763-43A7-9756-94C8B96FECD0}.Debug|x64.ActiveCfg = Debug|x64
+		{ADAA0E96-6763-43A7-9756-94C8B96FECD0}.Debug|x64.Build.0 = Debug|x64
+		{ADAA0E96-6763-43A7-9756-94C8B96FECD0}.Debug|x86.ActiveCfg = Debug|Win32
+		{ADAA0E96-6763-43A7-9756-94C8B96FECD0}.Debug|x86.Build.0 = Debug|Win32
+		{ADAA0E96-6763-43A7-9756-94C8B96FECD0}.Release|x64.ActiveCfg = Release|x64
+		{ADAA0E96-6763-43A7-9756-94C8B96FECD0}.Release|x64.Build.0 = Release|x64
+		{ADAA0E96-6763-43A7-9756-94C8B96FECD0}.Release|x86.ActiveCfg = Release|Win32
+		{ADAA0E96-6763-43A7-9756-94C8B96FECD0}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
