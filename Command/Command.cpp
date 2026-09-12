@@ -286,23 +286,19 @@ std::wstring NSCommand::Command::Click(const int x, const int y)
         }
     }
 
-    if (index != -1)
-    {
-        if (m_commandList.at(index).GetEnable())
-        {
-            m_cursorIndex = index;
-            m_SE->PlayClick();
-        }
-    }
-
     if (index == -1)
     {
         return std::wstring();
     }
-    else
+
+    if (!m_commandList.at(index).GetEnable())
     {
-        return m_commandList.at(m_cursorIndex).GetId();
+        return std::wstring();
     }
+
+    m_cursorIndex = index;
+    m_SE->PlayClick();
+    return m_commandList.at(index).GetId();
 }
 
 void NSCommand::Command::OnDeviceLost()
